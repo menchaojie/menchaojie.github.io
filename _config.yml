@@ -115,12 +115,14 @@ subscribe_rss: /feed.xml
 index:
     banner:
         # 首页 banner 区文字颜色
-        color: "#fff"
+        # color: "#fff"
+        color: "#F1F0ED"
         # 首页导航栏文字颜色
         nav-color: "rgba(255, 255, 255, .5)"
         # 首页 banner 区背景颜色
         # background-color: "#4183c4"
-        background-color: "#2983BB"
+        # background-color: "#2983BB"
+        background-color: "#2775B6"
         # 首页 banner 区背景图片
         # background-image: "/assets/images/octicons-bg.png"
         # background-repeat: "no-repeat"
@@ -187,7 +189,7 @@ beaudar:
 # giscus 配置参考：https://giscus.app/zh-CN
 giscus:
     #!! todo
-    repo: mzlogin/blog-comments
+    repo: menchaojie/menchaojie.github.io
     repo-id: MDEwOlJlcG9zaXRvcnk5MzEyNzkxNw==
     category: Announcements
     category-id: DIC_kwDOBY0E7c4CRtg9
