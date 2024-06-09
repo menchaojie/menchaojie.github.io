@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Thinking about coding
+title: 二叉树问题
 categories: 
   - codeing
   - data struct
@@ -33,6 +33,14 @@ while(!p || !s.empty()){//p或栈不空<==>p代表栈外，s代表站内
 	}
 }
 ```
+
+二叉树的很多算法题目基于二叉树的遍历，遍历主要有两种:
+
+- 1. 递归的方法
+
+- 2. 迭代的方法（借助栈） 
+
+对部分代码记录如下
 
 ## 重构二叉树重点是分清有左子树还是右子树
 两种方法
