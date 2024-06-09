@@ -1,18 +1,20 @@
 ---
 layout: page
 title: About
-description: 打码改变世界
-keywords: Zhuang Ma, 马壮
+description: 闲来总觉地方小， 周身一合天下宽
+keywords: Chaojie Men, 门超杰
 comments: true
 menu: 关于
 permalink: /about/
 ---
 
-我是马壮，码而生，码而立。
+我是门超杰， 
 
-仰慕「优雅编码的艺术」。
+行至今日，未停求索，
 
-坚信熟能生巧，努力改变人生。
+坚信有归期必有归处，
+
+留下足迹，努力前行。
 
 ## 联系
 
@@ -23,7 +25,7 @@ permalink: /about/
 {% if site.url contains 'mazhuang.org' %}
 <li>
 微信公众号：<br />
-<img style="height:192px;width:192px;border:1px solid lightgrey;" src="{{ site.url }}/assets/images/qrcode.jpg" alt="闷骚的程序员" />
+<img style="height:192px;width:192px;border:1px solid lightgrey;" src="{{ site.url }}/assets/images/qrcode.jpg" alt="这是什么" />
 </li>
 {% endif %}
 </ul>
