@@ -1,14 +1,16 @@
 ---
 layout: page
 title: Links
-description: 没有链接的博客是孤独的
-keywords: 友情链接
-comments: true
+description: 以人为鉴
+keywords: 网址链接
+comments: false 
 menu: 链接
 permalink: /links/
 ---
 
-> copy from [码志] waited for modifing
+> 学不可以已
+
+> 网上学习
 
 <ul>
 {% for link in site.data.links %}
@@ -18,7 +20,7 @@ permalink: /links/
 {% endfor %}
 </ul>
 
-> 友情链接
+> 网址链接
 
 <ul>
 {% for link in site.data.links %}

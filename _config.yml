@@ -4,7 +4,7 @@
 baseurl:
 url: https://menchaojie.github.io
 date_format: "ordinal"
-title: 门木身
+title: 方下
 subtitle: "闲来地方小，身合天下宽"
 description: "时间因相对而生，过往未来皆是现在"
 keywords: menchaojie, 身合, coding, 心修, happy, 回归
@@ -94,7 +94,9 @@ navs:
 
   -
     href: /wiki/
-    label: 维基
+    # label: 维基
+    # 感觉这个目录下的内容和wiki很不融洽
+    label: 百科
 
   -
     href: /links/
@@ -189,7 +191,6 @@ beaudar:
     repo: mzlogin/blog-comments
 # giscus 配置参考：https://giscus.app/zh-CN
 giscus:
-    #!! todo
     repo: menchaojie/menchaojie.github.io
     repo-id: MDEwOlJlcG9zaXRvcnk5MzEyNzkxNw==
     category: Announcements
