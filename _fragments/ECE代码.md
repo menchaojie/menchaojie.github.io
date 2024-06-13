@@ -12,8 +12,16 @@ mindmap: false
 mindmap2: false
 ---
 
+##  模型校准
+
+关于模型校准方面的内容，比如ECE
+
+## 代码
+
+代码如下：
 
 ```python
+
 def visual_calibration(true, pre, var1, var2, var):
     mu_values = pre
     sigma_sets = [var1, var2, var]
@@ -47,9 +55,14 @@ def visual_calibration(true, pre, var1, var2, var):
     fig.suptitle('Calibration Curves for Three Different Standard Deviation Sets')
     fig.savefig("./PDF_IMAGES/calibration_ece.pdf", bbox_inches='tight')
     plt.show()
+
 ```
+
+## 公式
+
+ECE的公式如下：
 
 $$\begin{align}
 ECE & = \sum_{i=1}^k p(i)|acc(i)-conf(i)|\\
 p(i) & = \sum_{i=1}^k conf(i)i\\
-\end{align} $$
+j'k\end{align} $$
