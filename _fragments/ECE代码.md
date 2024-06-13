@@ -1,3 +1,17 @@
+---
+layout: fragment
+title: 模型校准, ECE代码以及公式
+tags: [tag1, tag2]
+description: 模型校准相关内容
+keywords: ML, calibration
+mermaid: false
+sequence: false
+flow: false
+mathjax: true 
+mindmap: false
+mindmap2: false
+---
+
 
 ```python
 def visual_calibration(true, pre, var1, var2, var):
