@@ -14,7 +14,9 @@ mindmap2: false
 
 主要的二叉树遍历方法，分为递归的和非递归的方法
 ## 前序
-### 力扣：https://leetcode.cn/problems/binary-tree-preorder-traversal/description/
+前序即为“根左右"的访问顺序。
+
+[力扣](https://leetcode.cn/problems/binary-tree-preorder-traversal/description/)链接。
 ### 递归
 核心代码
 ```cpp
