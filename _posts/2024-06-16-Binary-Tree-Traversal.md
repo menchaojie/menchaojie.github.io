@@ -12,13 +12,19 @@ mindmap: false
 mindmap2: false
 ---
 
-主要的二叉树遍历方法，分为递归的和非递归的方法
-## 前序
-前序即为“根左右"的访问顺序。
+## 前中后三序
 
-[力扣](https://leetcode.cn/problems/binary-tree-preorder-traversal/description/)链接。
+二叉树的前中后序分别指：
+“根左右”，[力扣](https://leetcode.cn/problems/binary-tree-preorder-traversal/description/)链接。
+“左根右”，[力扣](https://leetcode.cn/problems/binary-tree-inorder-traversal/submissions/540486845/)链接。
+“左右根” 
+的排序方式。
+
+主要遍历方法，分为递归的和非递归的方法
+
 ### 递归
-核心代码
+
+#### 前序
 ```cpp
 class Solution {
 public:
@@ -35,8 +41,48 @@ public:
     }
 };
 ```
-### 迭代
 
+#### 中序
+
+```cpp
+class Solution {
+public:
+    void inOrder(TreeNode *root, vector<int> & ans){
+        if(!root)return ;
+        inOrder(root->left, ans);
+        ans.push_back(root->val);
+        inOrder(root->right,ans);
+    }
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int>ans;
+        inOrder(root, ans);
+        return ans;
+    }
+};
+```
+
+#### 后序
+
+```cpp
+class Solution {
+public:
+    void postOder(TreeNode*root, vector<int> & ans){
+        if(!root)return;
+        postOder(root->left, ans);
+        postOder(root->right, ans);
+        ans.push_back(root->val);
+    }
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int>ans;
+        postOder(root, ans);
+        return ans;
+    }
+};
+```
+
+### 迭代(非递归)
+
+#### 前序
 ```cpp
 class Solution {
 public:
@@ -61,27 +107,3 @@ public:
 };
 ```
 
-## 中序
-
-中序可以表示为“左根右”，[力扣](https://leetcode.cn/problems/binary-tree-inorder-traversal/submissions/540486845/)链接。
-
-### 递归
-
-```cpp
-class Solution {
-public:
-    void inOrder(TreeNode *root, vector<int> & ans){
-        if(!root)return ;
-        inOrder(root->left, ans);
-        ans.push_back(root->val);
-        inOrder(root->right,ans);
-    }
-    vector<int> inorderTraversal(TreeNode* root) {
-        vector<int>ans;
-        inOrder(root, ans);
-        return ans;
-    }
-};
-```
-
-## 后序
