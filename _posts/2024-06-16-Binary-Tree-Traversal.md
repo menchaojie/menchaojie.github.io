@@ -63,4 +63,25 @@ public:
 
 ## 中序
 
+中序可以表示为“左根右”，[力扣](https://leetcode.cn/problems/binary-tree-inorder-traversal/submissions/540486845/)链接。
+
+### 递归
+
+```cpp
+class Solution {
+public:
+    void inOrder(TreeNode *root, vector<int> & ans){
+        if(!root)return ;
+        inOrder(root->left, ans);
+        ans.push_back(root->val);
+        inOrder(root->right,ans);
+    }
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int>ans;
+        inOrder(root, ans);
+        return ans;
+    }
+};
+```
+
 ## 后序
