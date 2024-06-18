@@ -16,11 +16,11 @@ mindmap2: false
 
 二叉树的前中后序分别指：
 
-“根左右”，[力扣](https://leetcode.cn/problems/binary-tree-preorder-traversal/description/)链接。
+“根左右”，[leetcode](https://leetcode.cn/problems/binary-tree-preorder-traversal/description/)链接。
 
-“左根右”，[力扣](https://leetcode.cn/problems/binary-tree-inorder-traversal/submissions/540486845/)链接。
+“左根右”，[leetcode](https://leetcode.cn/problems/binary-tree-inorder-traversal/submissions/540486845/)链接。
 
-“左右根” [力扣](https://leetcode.cn/problems/binary-tree-postorder-traversal/submissions/540488098/)链接。
+“左右根” ，[leetcode](https://leetcode.cn/problems/binary-tree-postorder-traversal/submissions/540488098/)链接。
 
 的排序方式。
 
