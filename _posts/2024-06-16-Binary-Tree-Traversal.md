@@ -111,3 +111,62 @@ public:
 };
 ```
 
+#### 中序
+
+```cpp
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int>ans;
+        if(!root)return ans;
+        stack<TreeNode* > s;
+        TreeNode *p=root;
+        while(p||!s.empty()){
+            if(p){
+                s.push(p);
+                p=p->left;
+            }else{
+                p=s.top();
+                s.pop();
+                ans.push_back(p->val);
+                p=p->right;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### 后续
+
+```cpp
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int>ans;
+        if(!root)return ans;
+        stack<TreeNode*> s;
+        TreeNode *p=root;
+        TreeNode *pre=nullptr; //recode the pre visited node
+        while(p||!s.empty()){
+            if(p){
+                s.push(p);
+                p=p->left;
+            }else if(!s.empty()){
+                p=s.top();
+                //left child is null
+                if( p->right && p->right!=pre){//right non-empty and non-visited
+                    p=p->right;
+                }else{//right is null, or visited, need to visite p
+                    s.pop();
+                    ans.push_back(p->val);
+                    pre=p;
+                    p=nullptr; //prevant duplicate s.push(), and find the suitable root
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
