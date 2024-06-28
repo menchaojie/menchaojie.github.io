@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 验证是否搜素二叉树的后序遍历
+title: 验证二叉搜索树的后序遍历
 categories: [Binary Tree, Order]
 description: 二叉树遍历的应用
 keywords: 二叉树
