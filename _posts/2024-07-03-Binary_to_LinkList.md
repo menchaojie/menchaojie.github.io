@@ -26,43 +26,42 @@ mindmap2: false
 
 ```cpp
 class Solution {
-public:
+  public:
     TreeNode* Convert(TreeNode* pRootOfTree) {
-		if(!pRootOfTree)return nullptr;
-		auto *ans = new TreeNode(0);
-		ans->right=pRootOfTree;
-		TreeNode *p_pre=ans;
-		TreeNode *p=ans->right;
-		TreeNode *pre=nullptr;
-		TreeNode *tmp=nullptr;
-		while(p){
-			while(p->left){//left exist, pre exist
-				pre=getPreNode(p);
-				if(pre->right==nullptr){
-					pre->right=p;
-					p=p->left;
-				}else{
-					break;
-				}
-			}
-			p_pre->right=p;
-			p->left=p_pre;
-			p_pre=p;
-			p=p->right;
-		}
-		ans=ans->right;
-		ans->left=nullptr;
-		return ans;
+        if (!pRootOfTree)return nullptr;
+        auto* ans = new TreeNode(0);
+        ans->right = pRootOfTree;
+        TreeNode* p_pre = ans;
+        TreeNode* p = ans->right;
+        TreeNode* pre = nullptr;
+        TreeNode* tmp = nullptr;
+        while (p) {
+            while (p->left) { //left exist, pre exist
+                pre = getPreNode(p);
+                if (pre->right == nullptr) {
+                    pre->right = p;
+                    p = p->left;
+                } else {
+                    break;
+                }
+            }
+            p_pre->right = p;
+            p->left = p_pre;
+            p_pre = p;
+            p = p->right;
+        }
+        ans = ans->right;
+        ans->left = nullptr;
+        return ans;
     }
-private:
-	//if root has left child,  it has preNode
-	TreeNode* getPreNode(TreeNode *root){
-		TreeNode *pre=root->left;
-		//preNode is null, or it's->right child is root
-		while (pre->right!=nullptr && pre->right != root) pre=pre->right;
-		return pre;
-	}
+  private:
+    //if root has left child,  it has preNode
+    TreeNode* getPreNode(TreeNode* root) {
+        TreeNode* pre = root->left;
+        //preNode is null, or it's->right child is root
+        while (pre->right != nullptr && pre->right != root) pre = pre->right;
+        return pre;
+    }
 };
-
 ```
 
