@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 二叉树的遍历
-categories: [数据结构,二叉树]
+categories: [data struct, binary tree]
 description: 二叉树遍历，前中后序，层序
 keywords: 二叉树，遍历
 mermaid: false

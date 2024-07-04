@@ -1,7 +1,9 @@
 ---
 layout: post
 title: 验证二叉搜索树的后序遍历
-categories: [Binary Tree, Order]
+categories:
+  - data struct
+  - binary tree
 description: 二叉树遍历的应用
 keywords: 二叉树
 mermaid: false

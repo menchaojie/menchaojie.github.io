@@ -1,7 +1,10 @@
 ---
 layout: post
 title: 二叉搜索树转变为双向链表
-categories: [Binary Tree, LinkList]
+categories:
+  - data struct
+  - tree 
+  - list
 description: 二叉树Mirros遍历的应用
 keywords: 二叉树
 mermaid: false

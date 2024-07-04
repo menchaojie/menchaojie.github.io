@@ -2,8 +2,8 @@
 layout: post
 title: 二叉树问题
 categories: 
-  - codeing
   - data struct
+  - binary tree
 description: some word here
 keywords: keyword1, keyword2
 mermaid: false
