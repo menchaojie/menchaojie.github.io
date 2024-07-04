@@ -1,7 +1,7 @@
 ---
 layout: fragment
 title: 模型校准, ECE代码以及公式
-tags: [tag1, tag2]
+tags: [calibration, uncertenty]
 description: 模型校准相关内容
 keywords: ML, calibration
 mermaid: false
