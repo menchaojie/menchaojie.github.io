@@ -32,4 +32,32 @@ char s[] = "hello,world";
 
 ### static
 
+static 关键字主要用于控制变量的**存储持续时间**和**作用域**：
 
+ -  **静态局部变量**：在函数内部声明，存储持续时间为整个程序生命周期，作用域仅限于声明它的函数内。
+ -   **静态全局变量**：在全局作用域声明，存储持续时间为整个程序生命周期，作用域仅限于声明它的文件内。
+ -   **静态类成员变量**：在类内部声明，存储持续时间为整个程序生命周期，所有类的对象共享同一个静态成员变量。
+
+其中，静态成员变量不属于任何对象，属于类，或者属于所有对象共享，其定义和初始化要在类的外部，其例如下：
+```cpp
+#include <iostream>
+class Example {
+public:
+    static int count; // 静态类成员变量
+
+    Example() {
+        count++;
+    }
+};
+
+int Example::count = 0; // 静态成员变量定义并初始化
+
+int main() {
+    Example e1;
+    Example e2;
+    Example e3;
+
+    std::cout << "Count: " << Example::count << std::endl; // 输出 3
+    return 0;
+}
+```
