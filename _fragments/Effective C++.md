@@ -61,3 +61,37 @@ int main() {
     return 0;
 }
 ```
+
+### const
+const关键字修饰常量，指明不可修改的意思，常用于修饰以下几种情况：
+1. 变量，不可修改
+2. 指针，* 之前 只想内容不可修改，* 之后 变量之前，指针不可修改，不能指向其他数据内容
+3. 函数参数，函数参数不可修改
+4. 成员变量，不可修改，常量使用，必须在构造函数的初始化列表中进行初始化
+5. 成员函数，const放在在函数后，如`int getValue() const`，不可改变成员变量的值，提供只读访问接口
+6. 对象，（如 const MyClass obj(10);），只能调用其 const 成员函数，而不能调用非 const 成员函数
+
+### const 与static 联合修饰
+
+在 C++ 中，关键字的顺序一般不影响声明的含义， 例如：
+
+```cpp
+#include <iostream>
+class Example {
+public:
+    const static int a = 3;   // 正确
+    static const int b = 4;   // 正确
+    int const static c = 5;   // 正确
+    int static const d = 6;   // 正确
+};
+
+int main() {
+    std::cout << Example::a << std::endl;  // 输出 3
+    std::cout << Example::b << std::endl;  // 输出 4
+    std::cout << Example::c << std::endl;  // 输出 5
+    std::cout << Example::d << std::endl;  // 输出 6
+    return 0;
+}
+```
+
+但要注意的是，当出现指针的声明时，要特别留意，* 号前后关键字修饰的对象是不同的。
