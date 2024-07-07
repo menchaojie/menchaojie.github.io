@@ -79,17 +79,20 @@ const关键字修饰常量，指明不可修改的意思，常用于修饰以下
 #include <iostream>
 class Example {
 public:
-    const static int a = 3;   // 正确
-    static const int b = 4;   // 正确
-    int const static c = 5;   // 正确
-    int static const d = 6;   // 正确
+    const static int a = 1;   // 正确
+    const int static b = 2;   // 正确
+    static const int c = 3;   // 正确
+    static int const d = 4;   // 正确
+    int const static e = 5;   // 正确
+    int static const f = 6;   // 正确
 };
-
 int main() {
-    std::cout << Example::a << std::endl;  // 输出 3
-    std::cout << Example::b << std::endl;  // 输出 4
-    std::cout << Example::c << std::endl;  // 输出 5
-    std::cout << Example::d << std::endl;  // 输出 6
+    std::cout << Example::a << std::endl;  // 输出 1
+    std::cout << Example::b << std::endl;  // 输出 2
+    std::cout << Example::c << std::endl;  // 输出 3
+    std::cout << Example::d << std::endl;  // 输出 4
+    std::cout << Example::e << std::endl;  // 输出 5
+    std::cout << Example::f << std::endl;  // 输出 6
     return 0;
 }
 ```
