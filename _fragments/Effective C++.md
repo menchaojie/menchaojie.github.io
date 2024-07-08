@@ -68,8 +68,14 @@ const关键字修饰常量，指明不可修改的意思，常用于修饰以下
 2. 指针，* 之前 只想内容不可修改，* 之后 变量之前，指针不可修改，不能指向其他数据内容
 3. 函数参数，函数参数不可修改
 4. 成员变量，不可修改，常量使用，必须在构造函数的初始化列表中进行初始化
-5. 成员函数，const放在在函数后，如`int getValue() const`，不可改变成员变量的值，提供只读访问接口
+5. 成员函数，const放在在函数后，如`int getValue() const`，不可改变成员变量的值，提供只读访问接口；如果想要修改部分成员变量，可以和`mutable`结合
 6. 对象，（如 const MyClass obj(10);），只能调用其 const 成员函数，而不能调用非 const 成员函数
+7. 迭代器，
+	- `std::vector<int>::iterator itr = xxx` 为正常模式，const iterator 
+	- `const std::vector<int>::iterator itr = xxx`  const修饰了 `it`，相当于对指针进行了限定，指针为const，只能修改it指向的元素，不能进行`++itr`的操作，这种使用方法应该并不多用
+	- `std::vector<int>::const_iterator itr = xxx`， 迭代器指向内容被限定，只读模式，不能修改迭代器指针指向的内容
+	- C++11中使用auto获取迭代器有所不同，`auto & element:vec` 对应iterator， `const auto & element: vec` 对应const_iteration
+8. 返回值，如`const Ratioanal operator *( xx,xx)`，这样避免返回值被修改或者复制，避免程序员想要想要写`(a*b)==c;`，但却写成`(a*b)=c`这样的错误。
 
 ### const 与static 联合修饰
 
