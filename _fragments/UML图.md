@@ -15,4 +15,6 @@ mindmap2: false
 
 在写需求分析文档时，可能用到UML
 常用uml图可以参考：
-https://juejin.cn/post/7218584877909753915
+[7种UML](https://juejin.cn/post/7218584877909753915)
+
+ 
