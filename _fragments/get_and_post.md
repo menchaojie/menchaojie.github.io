@@ -40,7 +40,7 @@ if __name__ == '__main__':
 ```
 
 测试方法，浏览器：
-```html
+```txt
 http://remotehost:xxx/process?data_a=3.33&data_b=4.33
 ```
 
@@ -70,6 +70,6 @@ if __name__ == '__main__':
 
 测试方法, curl
 
-```bash
+```txt
 curl -X POST http://remotehost:xxx/process -H "Content-Type: application/json" -d '{"data_a": 30.931212203974912, "data_b": 121.5003097272177}'
 ```
