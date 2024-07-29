@@ -22,7 +22,7 @@ MySQL导入数据库时，[SQL] Query water_pv3 start [ERR] 1292 - Incorrect dat
 ```
 
 解决方法， 在配置文件：
-```bash
+```txt
 ### 在 Linux 上：
 
 1. **全局配置文件**（通常适用于所有 MySQL 实例）：
