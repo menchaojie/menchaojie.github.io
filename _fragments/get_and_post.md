@@ -73,3 +73,7 @@ if __name__ == '__main__':
 ```txt
 curl -X POST http://remotehost:xxx/process -H "Content-Type: application/json" -d '{"data_a": 30.931212203974912, "data_b": 121.5003097272177}'
 ```
+
+### 路由
+
+flask后端代码有路由的概念，其他语言后端是否也有呢？
