@@ -36,6 +36,9 @@ sudo nvim /etc/docker/daemon.json
 }
 ```
 
+并未测试，以备不时之需
+[参考](https://blog.csdn.net/llc580231/article/details/139979603)
+
 ## 断点续传
 
 
