@@ -23,5 +23,7 @@ TestFlight 是一款在 2014 年被苹果收购的 iOS 测试工具。开发者�
 2.  证书...
 3.   bundler id
 
+
 未完，待续...
+这个一定要完成，加油
 [参考1: 阿里云..](https://developer.aliyun.com/article/1220212)
