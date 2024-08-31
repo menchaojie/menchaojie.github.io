@@ -13,7 +13,8 @@ mathjax: false
 mindmap: false
 mindmap2: false
 ---
-## 什么事TestFlight
+
+## 什么是TestFlight
 
 TestFlight 是一款在 2014 年被苹果收购的 iOS 测试工具。开发者可以通过 TestFlight 来邀请用户协助测试 App，待 App 完善之后，再提交正式版到 App Store，这对于开发者和用户来说都是有益处的。
 
