@@ -18,3 +18,6 @@ mindmap2: false
 参考官网： https://streamlit.io/
 
 Streamlit是一个Python框架，能够方便的将机器学习、数据可视化在网页上展示，按照官网的说法就是：A faster way to build and share data apps。
+
+## streamlit 基本用法
+
