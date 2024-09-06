@@ -14,3 +14,5 @@ mindmap2: false
 ---
 优先参考
 https://blog.csdn.net/Que_art/article/details/135192479
+
+Compose 是一个用于定义和运行多容器 Docker 应用程序的工具
