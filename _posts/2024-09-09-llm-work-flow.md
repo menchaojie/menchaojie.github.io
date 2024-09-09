@@ -71,9 +71,7 @@ HTTP请求
 
 ![](https://u70f9ugeqz.feishu.cn/space/api/box/stream/download/asynccode/?code=OTU4YjRkN2MyY2MzMDE0NzA1ZjQxNWQ2MjRhMGM5NmZfQXkyd2dONE9FRmtZazd1SnR3d2ZGUzhPNkZBMVRPRUNfVG9rZW46VzNtaWI1clVWb3hGa0t4MnJwaWNEZVhJbmpoXzE3MjU4OTY3MDY6MTcyNTkwMDMwNl9WNA)![](https://u70f9ugeqz.feishu.cn/space/api/box/stream/download/asynccode/?code=MTI0MjNiMTA3MjBkMmJkY2NjYzhkMGEzOTg1OWNiNjdfV3o3TE80NG55V2VwUWFzYzhwNEhkVU42ZUNhSnhRUTdfVG9rZW46RnNDQWI0aEoxb2VKYmh4cTNwY2N0RURObmhkXzE3MjU4OTY3MDY6MTcyNTkwMDMwNl9WNA)
 
-“带知识库和联网的llama3.1"
-
-"仅llama3.1"
+“带知识库和联网的llama3.1" 和 "仅llama3.1"的区别
 
   
 
