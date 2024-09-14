@@ -25,7 +25,7 @@ COSCLI 是腾讯云对象存储（Cloud Object Storage，COS）提供的客户�
 https://cloud.tencent.com/document/product/436/63144
 
 命令格式如下：
-```shell
+```python
 ./coscli ls cos://examplebucket-1250000000
 ```
 
