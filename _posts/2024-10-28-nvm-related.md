@@ -26,3 +26,31 @@ If you have `git` installed (requires git v1.7.10+):
 3. activate `nvm` by sourcing it from your shell: `./nvm.sh`  或者 `install.sh`
 
 完成之后执行`source ~/.bashrc`才能生效
+
+### nvm安装命令
+
+```shell
+# 同时完成node和npm的安装
+nvm install 14.7.0
+```
+
+## pnpm的安装
+
+完成nvm的安装之后，很容易通过nvm install 安装 node 和 npm， 
+
+安装完npm之后，很容易进行pnpm的安装
+
+普通命令
+```json
+npm install -g pnpm
+```
+
+卸载命令
+```python
+npm uninstall -g pnpm
+```
+
+特定版本安装
+```shell
+npm install -g pnpm@x.x.x
+```
