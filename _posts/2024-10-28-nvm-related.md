@@ -54,3 +54,7 @@ npm uninstall -g pnpm
 ```shell
 npm install -g pnpm@x.x.x
 ```
+
+## 总结
+
+nvm->node and npm ->pnpm
