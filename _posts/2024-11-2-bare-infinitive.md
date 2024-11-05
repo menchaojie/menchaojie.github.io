@@ -51,3 +51,7 @@ _“What I need it to do is to call those functions on a host class”_ 和 _“
 6. **All she did was ask for a chance.**
 
 • 全写形式：_All she did was to ask for a chance._
+
+## 总结
+
+见多则不怪
