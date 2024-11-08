@@ -55,6 +55,13 @@ npm uninstall -g pnpm
 npm install -g pnpm@x.x.x
 ```
 
+## yarn安装
+
+```shell
+npm install --global yarn
+# 验证
+yarn --version
+```
 ## 总结
 
-nvm->node and npm ->pnpm
+nvm->node and npm ->pnpm  and npm ->yarn
