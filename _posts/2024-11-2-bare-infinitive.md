@@ -54,4 +54,4 @@ _“What I need it to do is to call those functions on a host class”_ 和 _“
 
 ## 总结
 
-精力不可空费
+无法清空，无法重生
