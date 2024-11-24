@@ -54,4 +54,5 @@ _“What I need it to do is to call those functions on a host class”_ 和 _“
 
 ## 总结
 
-无法清空，无法重生
+神马都是浮云，
+凡所有相皆是虚妄
