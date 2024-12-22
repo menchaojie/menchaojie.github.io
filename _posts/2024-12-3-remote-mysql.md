@@ -39,3 +39,7 @@ sudo systemctl restart mysql
 注意：bind-address = 0.0.0.0 在文件夹/etc/mysql/中的哪个位置具体不定，需要找
 
 持续
+
+总结：mysql或者mariaDB数据库要实现跨主机调用，主要有连个方面设置
+1.  数据库设置host:  localhost->%
+2. 系统，/etc/mysql.cnf, bind-address 从127.0.0.1->0.0.0.0
