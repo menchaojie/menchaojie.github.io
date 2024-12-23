@@ -43,3 +43,5 @@ sudo systemctl restart mysql
 总结：mysql或者mariaDB数据库要实现跨主机调用，主要有连个方面设置
 1.  数据库设置host:  localhost->%
 2. 系统，/etc/mysql.cnf, bind-address 从127.0.0.1->0.0.0.0
+
+注意：postgresql和mysql的远程连接有所不同，注意区分
