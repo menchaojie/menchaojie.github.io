@@ -45,3 +45,4 @@ sudo systemctl restart mysql
 2. 系统，/etc/mysql.cnf, bind-address 从127.0.0.1->0.0.0.0
 
 注意：postgresql和mysql的远程连接有所不同，注意区分
+转眼过去很久
