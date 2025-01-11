@@ -5,7 +5,7 @@ categories:
   - web
 description: web通信及相关术语
 keywords: web
-mermaid: true
+mermaid: false
 sequence: false
 flow: false
 mathjax: false
