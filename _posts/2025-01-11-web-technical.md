@@ -12,8 +12,11 @@ mathjax: false
 mindmap: false
 mindmap2: false
 ---
+```mermaid
+flowchart LR
 	浏览器 -- 请求信息 --> 网页服务器
 	网页服务器 -- 回复响应 --> 浏览器 
+```
 
 ## MIME标准
 
