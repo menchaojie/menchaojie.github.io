@@ -37,10 +37,10 @@ nvm install 14.7.0
 安装完npm之后，最好添加npm的国内源，例如：
 ```python
 npm config set registry https://npm.aliyun.com/
-
 ```
 
 参考：https://cloud.tencent.com/developer/article/2483466
+
 ## pnpm的安装
 
 完成nvm的安装之后，很容易通过nvm install 安装 node 和 npm， 
