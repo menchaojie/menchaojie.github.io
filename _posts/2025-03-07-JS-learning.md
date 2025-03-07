@@ -13,3 +13,12 @@ mindmap: false
 mindmap2: false
 ---
 # JS语法要点
+
+## 变量
+
+```js
+// define variable by 'var'
+var num = 10
+// the rule of namimg
+var myFriendAge = 32
+```
