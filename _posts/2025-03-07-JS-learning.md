@@ -88,6 +88,8 @@ JS除了想c语言一样操作，还有如下用法
 | `forEach`    | 遍历数组并执行操作      | `undefined` | 否       |
 | `map`        | 遍历数组并返回新数组     | 新数组         | 否       |
 | `filter`<br> | 过滤数组并返回满足条件的元素 | 新数组         | 否       |
+
+
 map示例
 ```javascript
 let numbers = [1, 2, 3];
