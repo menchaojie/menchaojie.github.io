@@ -22,7 +22,7 @@ mindmap2: false
 
 如
 
-```nginx
+```python
 location ~* \.jpg$ {
     expires 30d;
 }
