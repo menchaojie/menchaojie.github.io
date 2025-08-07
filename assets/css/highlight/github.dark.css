@@ -194,7 +194,6 @@
 }
 
 /* .highlight .py, */
-/*
 .highlight .n,
 .highlight .nx {
   color: #ffffff;
@@ -205,15 +204,4 @@
   color: #ab8c03;
   /* font-style: italic; */
   /* background-color: #272822; */
-}
-*/
-.highlight .n,
-.highlight .nx {
-  color: #ffffff;        /* 白色文字 */
-  background-color: #5f5f5d;  /* 深灰色背景 */
-}
-
-.highlight .p {
-  color: #ab8c03;        /* 金黄色文字 */
-  /* 没有背景色，使用默认背景 */
 }
