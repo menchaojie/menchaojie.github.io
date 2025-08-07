@@ -148,7 +148,7 @@
 
 .highlight .nf,
 .highlight .fm {
-  color: #d2a8ff;
+  color: #e2d0f6;
 }
 
 .highlight .err {
@@ -210,7 +210,7 @@
 .highlight .n,
 .highlight .nx {
   color: #ffffff;        /* 白色文字 */
-  background-color: #272822;  /* 深灰色背景 */
+  background-color: #5f5f5d;  /* 深灰色背景 */
 }
 
 .highlight .p {
