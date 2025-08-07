@@ -137,7 +137,8 @@ index:
 markdown: kramdown
 kramdown:
     input: GFM
-highlighter: rouge
+# highlighter: rouge
+highlighter: gruvbox
 paginate: 10
 lsi: false
 quiet: false

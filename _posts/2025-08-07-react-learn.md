@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 开始新的生活
+title: 学一点react 
 categories:
-  - life
+  - react
   - node
-description: 除了学习和工作，我们还有生活
-keywords: node
+description: 学一些前端的知识
+keywords: react 
 mermaid: false
 sequence: false
 flow: false
@@ -17,7 +17,7 @@ mindmap2: false
 
 有时候使用npm安装很慢，这时候使用yarn替代npm是一个不错的选择
 
-```python
+```bash
 npm install -g yarn
 yarn config set registry https://registry.npmmirror.com
 yarn install
