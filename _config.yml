@@ -138,7 +138,7 @@ markdown: kramdown
 kramdown:
     input: GFM
 # highlighter: rouge
-highlighter: gruvbox
+highlighter: gruvbox.light
 paginate: 10
 lsi: false
 quiet: false
