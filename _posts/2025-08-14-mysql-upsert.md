@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 数据库中upsert机制
+title: windows上matlab引擎的api
 categories:
-  - mysql
-description: 学一些数据库的只是
-keywords: mysql 
+  - matlab
+description: 学一些matlab的使用
+keywords: matlab 
 mermaid: false
 sequence: false
 flow: false
@@ -13,133 +13,150 @@ mindmap: false
 mindmap2: false
 ---
 
-尝试**MySQL EVENT 方案**，包含 **建表 + 触发器 + 自动清理（仅删除 1 小时前的数据）**，保证 staging_table 不会无限膨胀，同时保留最近数据用于调试。
+重点 **三件核心事情**：
+
+1. **Windows 端口开放让其他主机访问**
+2. **MATLAB 后台启动并保持运行**
+3. **把 MATLAB 结果返回给 API 调用方**
+
+我给你整理一个 **完整、清晰的操作步骤**。
 
 ---
 
-## ✅ **完整实现步骤**
+## **1️⃣ Windows 端口对外开放**
 
-### **1. 创建目标表（带唯一约束）**
+默认 Flask 只允许本机访问，要让局域网其他电脑访问，需要做两件事：
 
-```sql
-CREATE TABLE target_table (
-    id INT PRIMARY KEY,
-    name VARCHAR(50),
-    value INT,
-    updated_at DATETIME
-);
+### **1.1 Flask 绑定所有网络接口**
+
+```python
+app.run(host='0.0.0.0', port=5000)
 ```
 
----
+* `0.0.0.0` 表示监听所有接口
+* `port=5000` 可以自定义端口
 
-### **2. 创建中转表 staging\_table**
+### **1.2 Windows 防火墙放行端口**
 
-多一个 `created_at` 字段，用于清理逻辑：
+1. 打开 **控制面板 → 系统和安全 → Windows Defender 防火墙 → 高级设置**
+2. **入站规则 → 新建规则**
 
-```sql
-CREATE TABLE staging_table (
-    id INT,
-    name VARCHAR(50),
-    value INT,
-    created_at DATETIME DEFAULT NOW()
-);
+   * 规则类型：端口
+   * 协议：TCP
+   * 端口号：5000（你 Flask 的端口）
+   * 允许连接
+   * 配置文件：域/专用/公用（根据你网络情况）
+   * 名称：Flask API
+
+### **1.3 获取本机局域网 IP**
+
+在命令行：
+
+```cmd
+ipconfig
 ```
 
----
+找到 IPv4 地址，例如：`192.168.31.105`
+然后局域网其他电脑访问：
 
-### **3. 创建触发器，实现 UPSERT**
-
-```sql
-DELIMITER //
-
-CREATE TRIGGER staging_to_target
-AFTER INSERT ON staging_table
-FOR EACH ROW
-BEGIN
-    INSERT INTO target_table (id, name, value, updated_at)
-    VALUES (NEW.id, NEW.name, NEW.value, NOW())
-    ON DUPLICATE KEY UPDATE
-        name = VALUES(name),
-        value = VALUES(value),
-        updated_at = NOW();
-END;
-//
-
-DELIMITER ;
+```bash
+http://192.168.31.105:5000/run_script
 ```
 
 ---
 
-### **4. 开启 MySQL EVENT Scheduler**
+## **2️⃣ MATLAB 后台启动并保持运行**
 
-```sql
-SET GLOBAL event_scheduler = ON;
+### **2.1 启动 MATLAB Engine**
+
+在 Python 脚本里：
+
+```python
+import matlab.engine
+
+# 无 GUI 加快启动
+eng = matlab.engine.start_matlab("-nodesktop -nosplash")
 ```
 
-（要永久开启，在 `my.cnf` 加 `event_scheduler=ON`）
+### **2.2 可选：切换工作目录**
+
+```python
+eng.cd(r'D:\Codes\matlab\fourParameterClustering', nargout=0)
+```
+
+### **2.3 可选：添加子目录到 MATLAB 路径**
+
+```python
+eng.addpath(r'D:\Codes\matlab\fourParameterClustering\codegen', nargout=0)
+```
+
+这样 MATLAB 启动一次，就可以保持后台运行，Python 多次调用都直接连过去，不用每次重启 MATLAB。
 
 ---
 
-### **5. 创建自动清理事件**
+## **3️⃣ 传参 & 返回 MATLAB 结果**
 
-每天执行一次，清理 1 小时前的数据（避免正在处理的数据被删）：
+### **3.1 脚本类型 `.m`**
 
-```sql
-CREATE EVENT clear_staging_table
-ON SCHEDULE EVERY 1 DAY
-STARTS CURRENT_TIMESTAMP + INTERVAL 1 DAY
-DO
-  DELETE FROM staging_table WHERE created_at < NOW() - INTERVAL 1 HOUR;
+假设 `FourParameterClustering_test.m` 生成了 `result` 变量：
+
+```python
+# 传递参数到 MATLAB 工作区
+eng.workspace['inputFile'] = 'fengxian_shanghaizhiyu_thomas.xlsx'
+
+# 运行脚本
+eng.run('FourParameterClustering_test.m', nargout=0)
+
+# 从 MATLAB 获取结果
+result = eng.workspace['result']  # 返回 Python
+print(result)
 ```
 
-如果你想 **完全清空** staging\_table（不保留任何数据），可以改成：
+### **3.2 函数类型 `.m`**
 
-```sql
-CREATE EVENT clear_staging_table
-ON SCHEDULE EVERY 1 DAY
-STARTS CURRENT_TIMESTAMP + INTERVAL 1 DAY
-DO
-  TRUNCATE TABLE staging_table;
+如果是函数，比如 `mysum.m`：
+
+```matlab
+function y = mysum(a, b)
+    y = a + b;
+end
 ```
 
----
+Python 调用：
 
-### **6. 验证**
-
-* **插入 API 数据**
-
-```sql
-INSERT INTO staging_table (id, name, value) VALUES (1, 'Alice', 100);
-INSERT INTO staging_table (id, name, value) VALUES (1, 'Alice', 200);
+```python
+result = eng.mysum(3, 5)
+print(result)  # 输出 8
 ```
 
-* **查看目标表**
+### **3.3 JSON API 封装**
 
-```sql
-SELECT * FROM target_table;
+结合 Flask，就能把 MATLAB 返回结果通过 HTTP 返回：
+
+```python
+from flask import Flask, request, jsonify
+import matlab.engine
+
+eng = matlab.engine.start_matlab("-nodesktop -nosplash")
+eng.cd(r'D:\Codes\matlab\fourParameterClustering', nargout=0)
+
+app = Flask(__name__)
+
+@app.route('/run_script', methods=['POST'])
+def run_script():
+    data = request.json
+    eng.workspace['inputFile'] = data.get('inputFile', 'fengxian_shanghaizhiyu_thomas.xlsx')
+    eng.run('FourParameterClustering_test.m', nargout=0)
+    result = eng.workspace['result']
+    return jsonify({'result': result})
+
+app.run(host='0.0.0.0', port=5000)
 ```
 
-你会看到：
+这样：
 
-```
-id | name  | value | updated_at
-1  | Alice | 200   | ...
-```
+* **局域网主机访问 API**
+* **MATLAB 后台一次启动**
+* **Python 从 MATLAB 获取结果返回 JSON**
 
-* **查看事件是否存在**
 
-```sql
-SHOW EVENTS;
-```
-
----
-
-✅ **安全策略总结：**
-
-* `DELETE WHERE created_at < NOW() - INTERVAL 1 HOUR` → 保留最近 1 小时的中转数据。
-* 如果 staging\_table **只用于 UPSERT**，可以直接 `TRUNCATE`（最快）。
-* **MySQL EVENT 比 Cron 更好**，因为它运行在数据库内部，不依赖操作系统。
-
----
-
-注： 尚未验证
