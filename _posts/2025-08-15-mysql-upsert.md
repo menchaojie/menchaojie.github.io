@@ -3,7 +3,7 @@ layout: post
 title: 数据库中upsert机制
 categories:
   - mysql
-description: 学一些数据库的只是
+description: 学一些数据库的知识
 keywords: mysql 
 mermaid: false
 sequence: false
