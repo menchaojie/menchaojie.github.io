@@ -20,6 +20,7 @@ mindmap2: false
 ### **RHEL/CentOS与Ubuntu网络配置对比指南**
 
 #### 配置体系架构对比
+
 | 特性                | RHEL/CentOS (network-scripts)       | Ubuntu (Netplan)                  |
 |---------------------|-------------------------------------|-----------------------------------|
 | **配置目录**        | /etc/sysconfig/network-scripts/     | /etc/netplan/                     |
@@ -28,7 +29,9 @@ mindmap2: false
 | **默认工具链**      | NetworkManager + network.service    | systemd-networkd + netplan        |
 
 #### 静态IP配置示例
+
 **RHEL/CentOS配置**
+
 ```
 # /etc/sysconfig/network-scripts/ifcfg-eth0 主要内容：
 DEVICE=eth0
@@ -42,6 +45,7 @@ DNS2=8.8.4.4
 ```
 
 **Ubuntu配置**
+
 ```
 # /etc/netplan/00-installer-config.yaml 主要内容：
 network:
@@ -55,6 +59,7 @@ network:
 ```
 
 #### 配置生效方式
+
 | 操作类型          | RHEL/CentOS                     | Ubuntu                          |
 |-------------------|---------------------------------|---------------------------------|
 | 测试配置          | nmcli connection reload         | sudo netplan try                |
@@ -63,6 +68,7 @@ network:
 | 故障排查          | journalctl -xe                  | journalctl -u systemd-networkd  |
 
 #### 关键差异说明
+
 1. **CIDR表示法**：Ubuntu强制使用CIDR格式(如/24)，而RHEL支持传统子网掩码
 2. **接口命名**：Ubuntu默认采用可预测网络接口名(enpXsY)
 3. **DNS配置**：Ubuntu需在netplan中声明，RHEL可直接写入ifcfg文件
