@@ -156,3 +156,4 @@ ping -c 3 www.baidu.com
 1. 如果这是 **Ubuntu Desktop**，禁用 NetworkManager 后，任务栏的网络图标会消失（因为它依赖 NM）。不过有线网络仍然正常。
 2. 如果是 **Ubuntu Server**，这样做最合适，稳定、省心。
 3. VMware 的虚拟机桥接/NAT 都能正常工作，不受影响。
+4. 不同网络的选择要和想要部署的业务相对应
