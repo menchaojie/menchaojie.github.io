@@ -15,7 +15,7 @@
 
 /* 针对关键字样式 */
 .highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #569cd6; /* 蓝色关键字，便于识别 */
+  color: #a8f746; /* 蓝色关键字，便于识别 */
 }
 
 /* 针对字符串样式 */
