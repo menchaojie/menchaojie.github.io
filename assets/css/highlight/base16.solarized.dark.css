@@ -1,9 +1,10 @@
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight, .highlight .w {
-  color: #93a1a1;
+  /* color: #93a1a1; */
+  color: #ffffff;
   /* background-color: #04718c; */
-  background-color: #073642;
+  background-color: #0a3d4e;
 }
 .highlight .err {
   color: #002b36;
