@@ -1,62 +1,60 @@
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-/* 调整代码块样式为通用高对比度版本，适用于所有语言（如 Python、Bash 等） */
-
-/* 设置代码块的背景颜色和文字颜色，确保高对比度 */
-.highlight {
-  background-color: #1e1e1e; /* 深灰色背景，减少视觉疲劳 */
-  color: #ffffff; /* 纯白色文字，确保清晰可见 */
+/* 调整代码块的背景和文字颜色以提高可读性 */
+.highlight, .highlight .w {
+  color: #ffffff; /* 将文字颜色设置为纯白色，确保在深色背景上清晰可见 */
+  background-color: #1e1e1e; /* 将背景颜色设置为较浅的深色，减少视觉疲劳 */
 }
 
-/* 针对代码块中的注释样式 */
+/* 错误文本样式 */
+.highlight .err {
+  color: #ffffff; /* 错误文本颜色设置为白色，确保清晰 */
+  background-color: #f44747; /* 错误文本背景颜色设置为红色，突出显示 */
+}
+
+/* 注释样式 */
 .highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
   color: #6a9955; /* 绿色注释，突出显示但不刺眼 */
 }
 
-/* 针对关键字样式 */
+/* 关键字样式 */
 .highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #a8f746; /* 蓝色关键字，便于识别 */
+  color: #569cd6; /* 蓝色关键字，便于识别 */
 }
 
-/* 针对字符串样式 */
+/* 字符串样式 */
 .highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
   color: #ce9178; /* 橙色字符串，确保与背景形成对比 */
 }
 
-/* 针对数字样式 */
+/* 数字样式 */
 .highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
   color: #b5cea8; /* 浅绿色数字，便于区分 */
 }
 
-/* 针对操作符样式 */
+/* 操作符样式 */
 .highlight .o, .highlight .ow {
   color: #dcdcaa; /* 黄色操作符，突出显示 */
 }
 
-/* 针对错误文本样式 */
-.highlight .err {
-  color: #ffffff; /* 白色错误文字，确保清晰 */
-  background-color: #f44747; /* 红色背景，警示效果 */
-}
-
-/* 针对函数名称样式 */
-.highlight .na {
-  color: #dcdcaa; /* 黄色函数名称，便于识别 */
-}
-
-/* 针对区块标题样式 */
-.highlight .gh {
-  color: #ffffff; /* 白色区块标题，确保清晰 */
-  background-color: #1e1e1e; /* 与整体背景一致 */
-  font-weight: bold; /* 加粗显示，便于区分 */
-}
-
-/* 针对预处理指令样式 */
+/* 预处理指令样式 */
 .highlight .cp {
   color: #569cd6; /* 蓝色预处理指令，突出显示 */
 }
 
-/* 针对类型名称样式 */
+/* 类型名称样式 */
 .highlight .nt {
   color: #4ec9b0; /* 青绿色类型名称，便于识别 */
+}
+
+/* 函数名称样式 */
+.highlight .na {
+  color: #dcdcaa; /* 黄色函数名称，便于识别 */
+}
+
+/* 区块标题样式 */
+.highlight .gh {
+  color: #ffffff; /* 白色区块标题，确保清晰 */
+  background-color: #1e1e1e; /* 与整体背景一致 */
+  font-weight: bold; /* 加粗显示，便于区分 */
 }
