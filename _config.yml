@@ -55,7 +55,7 @@ compress_html:
 # highlight_theme: github
 # highlight_theme: magritte 
 # highlight_theme: github.dark 
-highlight_theme: base16.solarized.dark
+highlight_theme: my-test
 
 # ---------------- #
 #      Author      #
