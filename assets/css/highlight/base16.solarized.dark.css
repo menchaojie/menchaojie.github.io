@@ -1,79 +1,60 @@
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-/* Adjusting background and text colors for better readability */
+/* 调整代码块的背景和文字颜色以提高可读性 */
 .highlight, .highlight .w {
-  color: #ffffff; /* Ensuring text is bright white for clarity */
-  background-color: #0a3d4e; /* Slightly lighter background */
+  color: #ffffff; /* 将文字颜色设置为纯白色，确保在深色背景上清晰可见 */
+  background-color: #0a3d4e; /* 将背景颜色设置为较浅的深色，减少视觉疲劳 */
 }
+
+/* 错误文本样式 */
 .highlight .err {
-  color: #002b36;
-  background-color: #dc322f;
+  color: #ffffff; /* 错误文本颜色设置为白色，确保清晰 */
+  background-color: #dc322f; /* 错误文本背景颜色设置为红色，突出显示 */
 }
+
+/* 注释样式 */
 .highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
-  color: #a8b6c1; /* Light gray for comments */
+  color: #a8b6c1; /* 注释颜色设置为浅灰色，避免过于显眼 */
 }
-.highlight .cp {
-  color: #b58900;
-}
-.highlight .nt {
-  color: #b58900;
-}
-.highlight .o, .highlight .ow {
-  color: #93a1a1;
-}
-.highlight .p, .highlight .pi {
-  color: #93a1a1;
-}
-.highlight .gi {
-  color: #859900;
-}
-.highlight .gd {
-  color: #dc322f;
-}
-.highlight .gh {
-  color: #268bd2;
-  background-color: #002b36;
-  font-weight: bold;
-}
+
+/* 关键字样式 */
 .highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #ffcc00; /* Bright yellow for keywords */
+  color: #ffcc00; /* 关键字颜色设置为亮黄色，突出显示 */
 }
-.highlight .kc {
-  color: #cb4b16;
-}
-.highlight .kt {
-  color: #cb4b16;
-}
-.highlight .kd {
-  color: #cb4b16;
-}
+
+/* 字符串样式 */
 .highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #00ffcc; /* Bright cyan for strings */
+  color: #00ffcc; /* 字符串颜色设置为亮青色，确保与背景形成对比 */
 }
-.highlight .sr {
-  color: #2aa198;
-}
-.highlight .si {
-  color: #d33682;
-}
-.highlight .se {
-  color: #d33682;
-}
-.highlight .nn {
-  color: #b58900;
-}
-.highlight .nc {
-  color: #b58900;
-}
-.highlight .no {
-  color: #b58900;
-}
-.highlight .na {
-  color: #268bd2;
-}
+
+/* 数字样式 */
 .highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
-  color: #ff99cc; /* Bright pink for numbers */
+  color: #ff99cc; /* 数字颜色设置为亮粉色，便于识别 */
 }
-.highlight .ss {
-  color: #859900;
+
+/* 操作符样式 */
+.highlight .o, .highlight .ow {
+  color: #93a1a1; /* 操作符颜色设置为浅灰色，避免过于显眼 */
+}
+
+/* 预处理指令样式 */
+.highlight .cp {
+  color: #b58900; /* 预处理指令颜色设置为黄色，突出显示 */
+}
+
+/* 类型名称样式 */
+.highlight .nt {
+  color: #b58900; /* 类型名称颜色设置为黄色，便于识别 */
+}
+
+/* 函数名称样式 */
+.highlight .na {
+  color: #268bd2; /* 函数名称颜色设置为蓝色，突出显示 */
+}
+
+/* 区块标题样式 */
+.highlight .gh {
+  color: #ffffff; /* 区块标题颜色设置为白色，确保清晰 */
+  background-color: #0a3d4e; /* 区块标题背景颜色与整体背景一致 */
+  font-weight: bold; /* 设置为加粗，便于区分 */
 }
