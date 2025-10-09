@@ -1,17 +1,16 @@
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
+/* Adjusting background and text colors for better readability */
 .highlight, .highlight .w {
-  /* color: #93a1a1; */
-  color: #ffffff;
-  /* background-color: #04718c; */
-  background-color: #0a3d4e;
+  color: #ffffff; /* Ensuring text is bright white for clarity */
+  background-color: #0a3d4e; /* Slightly lighter background */
 }
 .highlight .err {
   color: #002b36;
   background-color: #dc322f;
 }
 .highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
-  color: #657b83;
+  color: #a8b6c1; /* Light gray for comments */
 }
 .highlight .cp {
   color: #b58900;
@@ -37,7 +36,7 @@
   font-weight: bold;
 }
 .highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #6c71c4;
+  color: #ffcc00; /* Bright yellow for keywords */
 }
 .highlight .kc {
   color: #cb4b16;
@@ -49,7 +48,7 @@
   color: #cb4b16;
 }
 .highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #859900;
+  color: #00ffcc; /* Bright cyan for strings */
 }
 .highlight .sr {
   color: #2aa198;
@@ -73,7 +72,7 @@
   color: #268bd2;
 }
 .highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
-  color: #859900;
+  color: #ff99cc; /* Bright pink for numbers */
 }
 .highlight .ss {
   color: #859900;
