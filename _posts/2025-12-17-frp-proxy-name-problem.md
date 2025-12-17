@@ -181,6 +181,33 @@ new proxy [my-ssh] type [tcp] success
 | `authentication_method` | `auth.method` |
 | `token`                 | `auth.token`  |
 
+## 设置开机启动
+
+```bash
+[Unit]
+# Service name, customizable
+Description = frp server
+After = network.target syslog.target
+Wants = network.target
+
+[Service]
+Type = simple
+# Command to start frps, modify to your frps installation path
+ExecStart = /path/to/frps -c /path/to/frps.toml
+
+[Install]
+WantedBy = multi-user.target
+
+```
+
+参考： [frp systemd](https://gofrp.org/en/docs/setup/systemd/)
+
+1. 比较方便的命令:
+```bash
+sudo systemctl enable --now frps
+```
+2. 这种方法在服务端、客户端都可以使用。
+
 ---
 
 ## 经验总结
@@ -192,13 +219,18 @@ new proxy [my-ssh] type [tcp] success
 
 如果你在 frp 0.65.x 使用 Toml，**建议直接采用 schema 风格写法**，避免隐性降级。
 
-**注意**: 这次测试中服务端的frps.toml中使用的确是旧写法，可正常使用。
+**注意**: 
+这次测试中服务端的frps.toml中使用的确是旧写法，可正常使用。
 意思是：服务端用了旧写法不影响通讯，客户端用了新写法，才能正确解析proxy的name字段。
 这个向下兼容是部分性质的
+
 ---
 
 ## 附注
 这次问题排查有一个较深的感受。
 刚开始，我觉得问题不大，直接让GPT写一段配置，结果出现名字无法显示的小问题，后来继续用GPT进行修改，结构就是越修改越错误，本想节省时间，反而浪费了大量的时间。故而，尽信GPT,不如无GPT。我们使用工具，不能依赖工具。
+
+
+最后还是看了官方文档解决的问题，官方文档才应该是第一手的参考资料。[frp官方文档](https://gofrp.org/zh-cn/docs/)
 
 
