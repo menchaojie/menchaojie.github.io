@@ -168,11 +168,7 @@ derp:
   auto_update_enabled: false
 ```
 
-DERP 服务会随着 **Headscale** 一起启动，不需要单独启动。通过下面的命令确认 **Headscale** 是否已经启用 DERP：
-
-```bash
-docker exec headscale headscale serve
-```
+DERP 服务会随着 **Headscale** 一起启动，不需要单独启动。
 
 ### 2.4 ACLs（访问控制列表）
 
