@@ -113,12 +113,30 @@ mindmap2: false
 derp:
   server:
     enabled: true
-    ipv4: 198.51.100.1
-    ipv6: 2001:db8::1
+
+    # Pick a unique ID > 900 to avoid conflicts with Tailscale
+    region_id: 900
+    region_code: "xxxxx"
+    region_name: "xxxyyyyxxxx"
+
+    # STUN (UDP)
+    stun_listen_addr: "0.0.0.0:3478"
+
+    # DERP relay (UDP)
+    derp_listen_addr: "0.0.0.0:443"
+
+    # Public IP of this server (VERY IMPORTANT)
+    ipv4: xx.xx.xx.xx
+    # ipv6: <leave commented unless you really have one>
+
+    # REQUIRED — this is what you are missing
+    private_key_path: /var/lib/headscale/derp.key
+
+  # Disable public Tailscale DERP map
+  urls: []
+  paths: []
+  auto_update_enabled: false
 ```
-
-
-#### 启动 DERP 服务
 
 DERP 服务会随着 **Headscale** 一起启动，不需要单独启动。通过下面的命令确认 **Headscale** 是否已经启用 DERP：
 
