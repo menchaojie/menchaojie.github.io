@@ -262,7 +262,7 @@ volumes:
 	reverse_proxy /web* http://headscale-ui:8080
 	reverse_proxy * http://headscale:8080
 
-  # other settings
+  #other settings
 }
 
 ```
