@@ -100,6 +100,32 @@ mindmap2: false
        - headscale
      network_mode: host
    ```
+   但是caddy设置https TLS时候，有时候要根据不同dns提供商安装不同插件，对于使用容器化部署的方式，需要重新编译源文件以及构建新的惊醒，
+   以腾讯云为例，需要先试用caddy builder 编译新的caddy程序， 再打包进新的镜像中。
+
+   对应命令分别为：
+
+   ```bash
+
+   docker run --rm -it \
+      -e GOPROXY=https://goproxy.cn,direct \
+      -v $PWD:/build \
+      -w /build \
+      caddy:builder \
+      xcaddy build \
+        --with github.com/caddy-dns/tencentcloud
+   ```
+
+   ```bash
+   docker build -t caddy-tencentdns ./caddy
+   ```
+
+ 其中`./caddy`的目录结构大为：
+   caddy/
+      ├── caddy
+      ├── Caddyfile
+      └── Dockerfile
+
 
 ### 2.3 DERP
 
