@@ -59,7 +59,7 @@ mindmap2: false
 2. **Headscale 配置（`config.yaml`）**
 
    ```yaml
-   server_url: https://headscale.example.com:8443
+   server_url: https://headscale.example.com:port # port is optional
    listen_addr: 0.0.0.0:8080
    private_key_file: /etc/headscale/private.key
    derp:
@@ -69,24 +69,16 @@ mindmap2: false
        ipv6: 2001:db8::1
    ```
 
-#### 启动 Headscale 服务
-
-在你的 **Headscale** 配置文件和 Docker Compose 设置好后，执行以下命令来启动 **Headscale**：
-
-```bash
-docker-compose up -d headscale
-```
-
 ### 2.2 Caddy
 
-**Caddy** 是一个高效的反向代理服务器，通常用于负载均衡和提供 SSL 支持。我们使用 **Caddy** 来为 **Headscale** 和 **Headscale-UI** 提供 HTTPS 服务。
+**Caddy** 是一个高效的反向代理服务器，通常用于负载均衡和提供 SSL 支持。本文使用 **Caddy** 来为 **Headscale** 和 **Headscale-UI** 提供 HTTPS 服务。
 
 #### Caddy 配置
 
 1. **Caddyfile 配置：**
 
    ```text
-   headscale.example.com:8443 {
+   headscale.example.com {
        encode gzip
        reverse_proxy /web* 127.0.0.1:8082
        reverse_proxy * 127.0.0.1:8081
@@ -109,17 +101,9 @@ docker-compose up -d headscale
      network_mode: host
    ```
 
-#### 启动 Caddy 服务
-
-启动 **Caddy** 服务，可以使用以下命令：
-
-```bash
-docker-compose up -d caddy
-```
-
 ### 2.3 DERP
 
-**DERP** 是一种用于穿透 NAT（网络地址转换）和防火墙的中继协议，用于 **Tailscale** 在无法直接建立对等连接时进行中继。我们可以通过启用 **Headscale** 内建的 **DERP** 服务器来简化连接配置。
+**DERP** 是一种用于穿透 NAT（网络地址转换）和防火墙的中继协议，用于 **Tailscale** 在无法直接建立对等连接时进行中继。可以通过启用 **Headscale** 内建的 **DERP** 服务器来简化连接配置。
 
 #### DERP 配置
 
@@ -132,6 +116,7 @@ derp:
     ipv4: 198.51.100.1
     ipv6: 2001:db8::1
 ```
+
 
 #### 启动 DERP 服务
 
