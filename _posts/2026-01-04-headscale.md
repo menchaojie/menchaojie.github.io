@@ -121,10 +121,12 @@ mindmap2: false
    ```
 
  其中`./caddy`的目录结构大为：
+ ```bash
    caddy/
       ├── caddy
       ├── Caddyfile
       └── Dockerfile
+ ```
 
 
 ### 2.3 DERP
@@ -174,29 +176,53 @@ docker exec headscale headscale serve
 
 ### 2.4 ACLs（访问控制列表）
 
+参考： [acls 配置](https://headscale.net/0.27.1/ref/acls/)
+
+要有两个地方的配合，
+
+1. headscale的配置文件config.yaml中
+
+```bash
+policy:
+  mode: file
+  path: /etc/headscale/acl.hujson
+```
+
+2. docker-compose.yaml文件中
+
+```bash
+volumes:
+      - ./config/acl.hujson:/etc/headscale/acl.hujson:ro
+```
+
 **ACLs** 用于管理网络中的访问权限。通过配置 **Headscale** 中的 **ACLs** 文件，可以控制哪些节点可以访问哪些服务。
 
 #### ACL 配置（`acl.hujson`）
 
 ```json
 {
-  "tagOwners": {
-    "tag:client": ["moon"]
-  },
   "groups": {
-    "tag:server": [
-      "100.64.0.2",
-      "100.64.0.3"
-    ]
+    "group:moon": ["xxx@local"],
   },
-  "ACLs": [
+  "tagOwners": {
+    "tag:client": ["user:xxx@local"],
+    "tag:server": ["user:xxx@local"]
+  },
+
+  "acls": [
     {
       "action": "accept",
-      "src": ["100.64.0.1"],
-      "dst": ["tag:server"]
+      "src": ["tag:client"],
+      "dst": ["tag:server:*"]
+    },
+    {
+      "action": "accept",
+      "src": ["tag:server"],
+      "dst": ["tag:server:*"]
     }
   ]
 }
+
 ```
 
 ### 2.5 Headscale-UI
@@ -213,23 +239,34 @@ docker exec headscale headscale serve
      container_name: headscale-ui
      restart: unless-stopped
      environment:
-       - HEADSCALE_URL=https://headscale.example.com:8443
+       - HEADSCALE_URL=https://headscale.example.com:port
        - HEADSCALE_API_KEY=your-headscale-api-key
      ports:
-       - "8082:8080"
+       - "xxxx:8080"
    ```
 
 2. **访问 Headscale-UI：**
 
-   通过浏览器访问 `https://headscale.example.com:8443/web` 即可进入 **Headscale-UI**。
 
-#### 启动 Headscale-UI 服务
+   通过浏览器访问 `https://headscale.example.com:port/web` 即可进入 **Headscale-UI**。
 
-启动 **Headscale-UI** 服务：
+参考： [headscale-ui](https://github.com/gurucomputing/headscale-ui)
+
+这里需要注意的是, 将 `ports: - "xxxx:8080"` 映射出的端口挂在headscale实例网址的 /web下，
+
+即，如果headscale的网址 `https://headscale.example.com:port` 那要将 `ports: - "xxxx:8080"` 通过caddy转发为： `https://headscale.example.com:port/web` ,  对应的caddy设置为：
 
 ```bash
-docker-compose up -d headscale-ui
+ https://headscale.example.com:port {
+
+	reverse_proxy /web* http://headscale-ui:8080
+	reverse_proxy * http://headscale:8080
+
+  # other settings
+}
+
 ```
+
 
 ---
 
