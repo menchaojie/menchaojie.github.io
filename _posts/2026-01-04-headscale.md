@@ -107,6 +107,8 @@ mindmap2: false
 
 #### DERP 配置
 
+参考：[DERP](https://headscale.net/stable/ref/derp/)
+
 在 `config.yaml` 中启用 **DERP** 服务：
 
 ```yaml
