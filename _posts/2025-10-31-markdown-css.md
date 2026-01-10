@@ -114,4 +114,43 @@ blockquote a {
 ## 四、总结
 
 Markdown 导出 PDF 链接失效的根本原因，是部分 CSS 样式在渲染阶段破坏了 `<a>` 标签的交互属性。
-通过上面的简洁修复样式，我们可以让 PDF 中的链接 **既美观又可点击**。
+
+## 补充
+
+对于有的渲染器来说，比如vscode， 或这不同系统的obsidian， 会出先使用html标签，尤其是使用inline属性时，渲染不正常
+
+当时通过css定义样式，然后在标签中通过class进行引用很多时候可以解决问题，如table的属性通过css进行外置定义：
+
+```css
+/***************************** Table ********************************************/
+.cv-table {
+  width: 100%;
+  /* border: 9px solid #000; */
+  border: none;
+  /* border-collapse: separate; */
+}
+.cv-table td {
+  text-align: center;
+  padding: 0px 0px;
+  /* border: 1px solid #ccc; */
+  border: none;
+  /* border-collapse: separate; */
+  white-space: nowrap;
+  vertical-align: top;
+}
+.cv-table tr {
+  padding: 0px 0px;
+  margin: 0px;
+  border-collapse: collapse;
+  border: none;
+  line-height: var(--line-height);
+}
+
+.cv-table td.right {
+  text-align: right;
+}
+.cv-table td.left {
+  text-align: left;
+}
+
+```
