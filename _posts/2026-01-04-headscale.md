@@ -221,6 +221,7 @@ volumes:
 
 ```
 
+
 ### 2.5 Headscale-UI
 
 **Headscale-UI** 提供了一个用于管理 **Headscale** 节点和配置的图形用户界面。它通过 **Caddy** 进行反向代理，便于用户通过浏览器管理 **Headscale** 网络。
@@ -262,7 +263,6 @@ volumes:
 }
 
 ```
-
 
 ---
 
