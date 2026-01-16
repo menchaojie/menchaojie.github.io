@@ -14,8 +14,7 @@ mathjax: false
 mindmap: false
 mindmap2: false
 ---
-
-# 用 ratarmount 把 tar 当成文件系统（Linux / macOS 实战）
+# 用 ratarmount 把 tar 当成文件系统（Linux  and macOS ）
 
 在处理大型 `.tar / .tar.gz / .tar.xz` 归档时，经常只想“进去看看”，而不是完整解压。  
 `ratarmount` 正是为这个需求而生的工具：**通过 FUSE 把 tar 归档挂载成一个只读文件系统**。
@@ -83,6 +82,7 @@ brew install --cask macfuse
 
 安装完成后，**必须**到：
 ` 系统设置 → 通用 → 登录项与扩展 →扩展→按类别→文件系统扩展`
+
 否则 FUSE 无法工作。
 
 #### 安装 ratarmount
@@ -124,6 +124,7 @@ ratarmount --version
 mkdir ~/mnt_tar
 ratarmount archive.tar.gz ~/mnt_tar
 ```
+第一次挂载是可能需要在‘恢复模式’下开启系统扩展, 参考[开启系统扩展](https://www.52mac.com/soft/13613-1-1.html)
 
 卸载：
 ```bash
@@ -262,7 +263,7 @@ chown $USER:$USER mnt
 
 - 需要写入 / 修改归档内容
 - 极端性能敏感场景
-
+ 
 ---
 
 ## 5. 总结
@@ -274,4 +275,3 @@ chown $USER:$USER mnt
 当你需要的是“像目录一样可靠地查看 tar”，  
 而不是“赌工具有没有看全”，  
 `ratarmount` 是当前最稳妥的选择。
-
