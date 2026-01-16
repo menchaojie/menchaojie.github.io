@@ -65,7 +65,7 @@ ratarmount archive.tar.gz ~/mnt_tar
 卸载：
 ```bash
 fusermount -u ~/mnt_tar
-# or
+#or
 umount ~/mnt_tar
 ```
 
@@ -86,18 +86,36 @@ brew install --cask macfuse
 否则 FUSE 无法工作。
 
 #### 安装 ratarmount
+
+安装pipx
 ```bash
 brew install python
-pip3 install ratarmount
-# or
+#pip3 install ratarmount
 brew install pipx
 pipx ensurepath
+#confirm
 pipx --version
-pipx install ratarmount
 ```
 
-验证：
+安装zstd
+
 ```bash
+brew install zstd
+#confirm
+ls $(brew --prefix zstd)/include/zstd.h
+
+#Apple Silicon（M1/M2/M3）required
+export CPPFLAGS="-I$(brew --prefix zstd)/include"
+export LDFLAGS="-L$(brew --prefix zstd)/lib"
+```
+
+
+安装以及验证：
+```bash
+#insall
+pipx install ratarmount \
+  --pip-args="-i https://pypi.tuna.tsinghua.edu.cn/simple"
+#confirm
 ratarmount --version
 ```
 
@@ -111,6 +129,13 @@ ratarmount archive.tar.gz ~/mnt_tar
 ```bash
 umount ~/mnt_tar
 ```
+
+查看挂载的情况：
+```bash
+mount | grep fuse
+#FuseMount on /Users/moon/mnt (mac**fuse**, nodev, nosuid, synchronous, #mounted by moon)
+```
+
 
 ---
 
