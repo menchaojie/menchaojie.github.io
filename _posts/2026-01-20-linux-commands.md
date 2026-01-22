@@ -35,3 +35,29 @@ sudo systemctl restart systemd-hostnamed
 | ---------- | --- | --------- |
 | hostname   | 身份  | 机器自己叫什么   |
 | /etc/hosts | 映射  | 名字对应哪个 IP |
+## install
+
+这里以cri-dockerd安装为例，使用了两条install的命令
+
+```bash
+install -o root -g root -m 0755 cri-dockerd /usr/local/bin/cri-dockerd
+install packaging/systemd/* /etc/systemd/system
+#....
+#install [选项]... 源文件 目标文件
+#install [选项]... 源文件... 目标目录
+#install -d [选项]... 目录...
+#比如,-v, 是否显示详细操作信息
+```
+
+其他可以参考：[install 命令](https://www.runoob.com/linux/linux-comm-install.html)
+
+## cut
+
+对于文本，根据规则，按列选取内容
+```bash
+cut  [-bn] [file]
+cut [-c] [file]
+cut [-df] [file]
+```
+
+主要用于管道中，处理其他命名，比如grep之后的内容。`-d "xxx" -f 4` 这是常见参数组合。
