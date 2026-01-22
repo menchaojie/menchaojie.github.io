@@ -61,3 +61,40 @@ cut [-df] [file]
 ```
 
 主要用于管道中，处理其他命名，比如grep之后的内容。`-d "xxx" -f 4` 这是常见参数组合。
+
+## git reset
+
+命令示意：
+
+```bash
+# 1. 撤销最后一次提交，但保留代码
+git reset HEAD~1
+
+# 2. 清理不该存在的文件
+rm -f *.tgz
+# 或者加到 .gitignore
+
+# 3. 重新选择性 add
+git add 01_install-docker-aliyun.sh
+git add .gitignore
+
+# 4. 再 commit
+git commit -m "install docker via aliyun mirror"
+```
+
+不同参数时，git reset 对不同git区域的影响
+
+| 命令                      | HEAD | 暂存区  | 工作区      |
+| ----------------------- | ---- | ---- | -------- |
+| `git reset --soft`      | ✅ 移动 | ❌ 不动 | ❌ 不动     |
+| `git reset --mixed`（默认） | ✅    | ✅    | ❌        |
+| `git reset --hard`      | ✅    | ✅    | ✅（⚠️删内容） |
+
+回退的指针含义
+
+| 写法       | 含义     |
+| -------- | ------ |
+| `HEAD~1` | 上一个提交  |
+| `HEAD~2` | 上上个提交  |
+| `HEAD~3` | 往回 3 个 |
+| `HEAD~0` | 还是自己   |
