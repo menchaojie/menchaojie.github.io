@@ -92,12 +92,67 @@ git commit -m "install docker via aliyun mirror"
 
 回退的指针含义
 
-| 写法       | 含义     |
-| -------- | ------ |
-| `HEAD~1` | 上一个提交  |
-| `HEAD~2` | 上上个提交  |
-| `HEAD~3` | 往回 3 个 |
-| `HEAD~0` | 还是自己   |
+| 写法           | 含义     |
+| ------------ | ------ |
+| `HEAD~1`     | 上一个提交  |
+| `HEAD~2`     | 上上个提交  |
+| `HEAD~3`     | 往回 3 个 |
+| `HEAD~0`<br> | 还是自己   |
+|              |        |
+|              |        |
+
+## git 相关的配置文件
+
+ Git 与 SSH 配置的关系与执行流程
+
+在使用 `git push` 时，`.git/config` 和 `~/.ssh/config` 分别承担不同职责：
+
+- `.git/config` 决定连接的远程地址（去哪里）
+- `~/.ssh/config` 决定使用哪种身份认证（用哪把钥匙）
+
+二者通过“主机名”产生关联， 执行流程如下：
+
+当执行：
+```bash
+git push
+````
+
+实际发生的步骤如下：
+
+1. Git 读取仓库配置 `.git/config` 中的远程地址，例如：
+ ```ini
+ [remote "origin"]
+   url = git@alias.example.com:user/repository.git
+ ```
+
+Git 从这里解析出：
+- 协议：SSH
+- 用户：git
+- 主机名：alias.example.com
+ 然后 Git 调用 SSH 建立连接。
+ 
+2. **SSH 根据主机名匹配配置**
+SSH 读取 `~/.ssh/config`，查找与主机名匹配的规则：
+
+```sh
+Host alias.example.com
+	HostName real-server.example.com
+	IdentityFile ~/.ssh/custom_private_key
+```
+
+匹配后会执行：
+- 将真实连接地址改写为 `real-server.example.com`
+- 强制使用指定私钥进行认证
+3. **服务器验证公钥**
+SSH 使用私钥签名认证请求。   服务器验证该私钥对应的公钥是否存在于账户中：
+- 匹配 → 连接成功
+- 不匹配 → `Permission denied (publickey)`
+
+4. 关键理解
+- Git 只负责“连接目标地址”
+- SSH 负责“身份认证方式”
+- 主机名是两者之间的连接点
+如果远程地址中的主机名发生变化，对应的 SSH 配置也必须匹配，否则认证策略不会生效。
 
 ## 重定向
 
