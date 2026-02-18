@@ -99,9 +99,10 @@ git commit -m "install docker via aliyun mirror"
 | `HEAD~3`     | 往回 3 个 |
 | `HEAD~0`<br> | 还是自己   |
 
+
 ## git 配置文件
 
- Git  有两个可以影响git push的配置文件， 在使用 `git push` 时，`.git/config` 和 `~/.ssh/config` 分别承担不同职责：
+ Git  有两个可以配合使用的配置文件， 在使用 `git push` 时，`.git/config` 和 `~/.ssh/config` 分别承担不同职责：
 
 - `.git/config` 决定连接的远程地址（去哪里）
 - `~/.ssh/config` 决定使用哪种身份认证（用哪把钥匙）
