@@ -27,7 +27,6 @@ mindmap2: false
   
 二叉树的反序列化(Deserialize)是指：根据某种遍历顺序得到的序列化字符串结果str，重构二叉树。
 
-
 链接：
 
 [leetcode](https://leetcode.cn/problems/h54YBf/solutions/1038204/xu-lie-hua-yu-fan-xu-lie-hua-er-cha-shu-dh5vl/)
