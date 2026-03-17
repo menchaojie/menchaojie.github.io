@@ -25,7 +25,7 @@ https://www.wgstart.com/help/docs67.html
 确保 MySQL 配置允许从任何主机或特定的主机（例如，% 或 192.168.1.%）进行连接。
 
 1. **修改 MySQL 配置文件**（my.cnf 或 my.ini），找到以下行并取消注释或修改：
-    
+
 bind-address = [0.0.0.0](http://0.0.0.0)
 
 bind-address = <MySQL服务器的IP地址>
@@ -45,3 +45,4 @@ sudo systemctl restart mysql
 2. 系统，/etc/mysql.cnf, bind-address 从127.0.0.1->0.0.0.0
 
 注意：postgresql和mysql的远程连接有所不同，注意区分
+
