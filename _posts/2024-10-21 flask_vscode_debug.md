@@ -20,16 +20,12 @@ mindmap2: false
 
 你需要在 VSCode 中设置 launch.json 文件来配置调试任务：
 
-  
-
 1. 打开 VSCode，点击左侧活动栏中的**调试图标**，然后点击 **“创建 launch.json 文件”**。
 
 2. 选择 **Python** 作为环境。
 
 3. VSCode 会为你生成一个基本的调试配置。你可以按需修改配置。
-
   
-
 示例的 launch.json 文件配置：
 
 ```json
